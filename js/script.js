@@ -76,6 +76,10 @@ function register() {
 
 
 function login() {
+    //If localstorage is empty then create an empty array
+    if (localStorage.getItem("userdata") === null) {
+        localStorage.setItem("userdata", JSON.stringify([]))
+    }
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
