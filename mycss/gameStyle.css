@@ -1,0 +1,68 @@
+div.game {
+    width: 400px;
+    height: 800px;
+    border: 1px solid black;
+    margin: auto;
+    background-image: url(../images/background.png);
+    animation: animatedBackground 10s linear infinite;
+
+
+
+    
+  
+  }
+
+
+
+div.tubeTop {
+    width: 50px;
+    height: 550px;
+    background-color: green;
+    position: relative;
+
+    animation: tubeMove 3s infinite linear;
+
+}
+
+div.hole {
+    width: 50px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation: tubeMove 3s infinite linear;
+}
+
+div.tubeBottom {
+    width: 50px;
+    height: 800px;
+    background-color: green;
+    position: relative;
+    animation: tubeMove 3s infinite linear;
+
+}
+
+div.birb {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    position: absolute;
+}
+
+
+
+
+
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 100% 0;
+      }
+}
+
+@keyframes tubeMove {
+    from {left: 400px;}
+    to {left: -50px;}
+}
+
