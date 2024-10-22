@@ -67,6 +67,8 @@ function jump() {
     var marginVal = parseInt(x.marginTop);
     //This function removes 100px from the birds top margin gradually so it looks smooth
     var gradualJump = setInterval(function() {
+      //Makes the bird look up slightly by changing the bg image
+      bird.style.backgroundImage = "url('../images/birdfly.png')"
       marginVal = marginVal - 5;
       bird.style.marginTop = marginVal + "px";
       if (marginVal <= 0) {
@@ -74,7 +76,10 @@ function jump() {
         clearInterval(gradualJump);
       }
       count = count - 1;
+      //Once all 100px have been removed stops the setinterval until the next time the jump function is called
       if (count == 0) {
+        //Changes the background image back to the non jumping bird image
+        bird.style.backgroundImage = "url('../images/bird.png')"
         clearInterval(gradualJump);
         stopGravity = 0;
         
