@@ -1,11 +1,27 @@
 var tubeTop = document.getElementsByClassName("tubeTop")[0];
+var tubeBottom = document.getElementsByClassName("tubeBottom")[0];
+var hole = document.getElementsByClassName("hole")[0];
 var bird = document.getElementsByClassName("bird")[0];
 let stopGravity = 0
 
 tubeTop.addEventListener("animationiteration", () => {
     var ranNum = Math.random() * (550 - 100) + 100;
     tubeTop.style.height = ranNum + "px";
+    console.log("Pos of hole:" + getOffset(hole).top)
 });
+
+
+function getOffset(el) {
+  const rect = el.getBoundingClientRect();
+  return {
+    left: rect.left,
+    right: rect.right,
+    top: rect.top,
+    bottom: rect.bottom,
+
+  };
+}
+
 
 //gravity
 var gravity = setInterval(function () {
@@ -20,6 +36,24 @@ var gravity = setInterval(function () {
     bird.style.marginTop = marginVal + "px"
     };
 }, 16)
+
+
+//Collision detection
+var collision = setInterval(function () {
+  //x axis intersects with bird
+  if (getOffset(tubeTop).left <= getOffset(bird).right) {
+    if (getOffset(bird).top >= getOffset(hole).top && getOffset(bird).bottom <= getOffset(hole).bottom) {
+      console.log("Pass")
+
+    } else {
+      alert("Ur dead")
+
+    }
+    
+  };
+  return
+
+}, 50)
 
 
 function jump() {
@@ -38,6 +72,9 @@ function jump() {
       if (count == 0) {
         clearInterval(gradualJump);
         stopGravity = 0;
+        console.log("Pos of bird:" + getOffset(bird).top)
+        
+        
       }   
-    },16)
+    },15)
     }
