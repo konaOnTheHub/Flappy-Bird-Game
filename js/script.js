@@ -1,3 +1,4 @@
+
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
@@ -6,6 +7,7 @@ function validateEmail(email) {
 
 function checkIfLoggedIn() {
     const userLogged = sessionStorage.getItem("loggedUsr");
+    //if user isnt logged in it forces them back to the login page
     if (userLogged == null) {
         window.location.href = "login.html"
     }
@@ -82,16 +84,18 @@ function login() {
     }
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-
+    //Checks if either forms are empty
     if (email === "" || password === "") {
         return alert("All fields must be filled out!")
     };
 
     var parseData = JSON.parse(localStorage.getItem("userdata"));
-
+    //Checks if user exists
     for (let i = 0; i < parseData.length; i++) {
         if (parseData[i].email == email && parseData[i].password == password) {
+            //Sets session storage to contain the username //This is later used to in the checkIfLoggedIn function
             sessionStorage.setItem("loggedUsr", parseData[i].userId)
+            //Makes them go the game page after login
             window.location.href = "welcome.html";
             return alert("Login succesful")
 
@@ -104,7 +108,11 @@ function login() {
 
 
 }
+
+//Logout
 function logout() {
+    //Removes user from session storage
     sessionStorage.removeItem("loggedUsr");
+    //Navigates the window back to the login page
     window.location.href = "login.html"
 }

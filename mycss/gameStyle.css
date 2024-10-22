@@ -1,3 +1,4 @@
+
 div.game {
     width: 600px;
     height: 800px;
@@ -5,10 +6,8 @@ div.game {
     margin: auto;
     background-image: url(../images/background.png);
     animation: animatedBackground 10s linear infinite;
+    /* Without overflow being hidden the tubes go outside of the game's border */
     overflow: hidden;
-
-
-
     
   
   }
@@ -46,13 +45,13 @@ div.bird {
     width: 50px;
     height: 50px;
     margin-top: 250px;
-    background-color: black;
+    background-image: url("../images/bird.png");
     position: absolute;
 }
 
 
 
-
+/* Makes the background image move from right to left */
 
 @keyframes animatedBackground {
     from {
@@ -62,7 +61,7 @@ div.bird {
         background-position: 100% 0;
       }
 }
-
+/* Makes the tubes move from right to left */
 @keyframes tubeMove {
     from {left: 600px;}
     to {left: -75px;}

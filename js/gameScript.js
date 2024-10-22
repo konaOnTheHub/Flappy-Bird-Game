@@ -4,13 +4,15 @@ var hole = document.getElementsByClassName("hole")[0];
 var bird = document.getElementsByClassName("bird")[0];
 let stopGravity = 0
 
+
+//Everytime the animation iterates it generates a new pos for the hole.
 tubeTop.addEventListener("animationiteration", () => {
     var ranNum = Math.random() * (550 - 100) + 100;
-    tubeTop.style.height = ranNum + "px";
-    console.log("Pos of hole:" + getOffset(hole).top)
+    //Does this by assigning a new height to the top tube thus pushing the hole element down.
+    tubeTop.style.height = ranNum + "px"; 
 });
 
-
+//Function to return the position of "el"
 function getOffset(el) {
   const rect = el.getBoundingClientRect();
   return {
@@ -40,10 +42,11 @@ var gravity = setInterval(function () {
 
 //Collision detection
 var collision = setInterval(function () {
-  //x axis intersects with bird
+  //if x axis intersects with bird
   if (getOffset(tubeTop).left <= getOffset(bird).right) {
+    //Checks if the bird in the hole
     if (getOffset(bird).top >= getOffset(hole).top && getOffset(bird).bottom <= getOffset(hole).bottom) {
-      console.log("Pass")
+      return
 
     } else {
       alert("Ur dead")
@@ -55,12 +58,14 @@ var collision = setInterval(function () {
 
 }, 50)
 
-
+//Jumping function
 function jump() {
     stopGravity = 1;
     var count = 20
+    //Get current margin value
     var x = getComputedStyle(bird);
     var marginVal = parseInt(x.marginTop);
+    //This function removes 100px from the birds top margin gradually so it looks smooth
     var gradualJump = setInterval(function() {
       marginVal = marginVal - 5;
       bird.style.marginTop = marginVal + "px";
@@ -72,7 +77,6 @@ function jump() {
       if (count == 0) {
         clearInterval(gradualJump);
         stopGravity = 0;
-        console.log("Pos of bird:" + getOffset(bird).top)
         
         
       }   
