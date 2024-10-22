@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" onclick="jump()">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="../mycss/gameStyle.css">
 
 </head>
+
 <body>
     <ul>
         <li><a href="./welcome.html" class="active">Home</a></li>
@@ -15,11 +17,23 @@
         <li style="float:right"><a onclick="logout()">Logout</a></li>
     </ul>
     <h1 id="welcomeMessage"></h1>
+    <div class="scoreDisplay">
+        <h2 id="score">Score: 0</h2>
+    </div>
+
     <div class="game">
+        <div class="menuObjects">
+            <h1 id="menuText">Flappy Bird Game</h1>
+            <button type="button" id="menuButton" onclick="play()">Play!</button>
+        </div>
+        <div class="gameObjects">
             <div class="bird"></div>
             <div class="tubeTop"></div>
             <div class="hole"></div>
             <div class="tubeBottom"></div>
+        </div>
+
+
     </div>
 
 </body>

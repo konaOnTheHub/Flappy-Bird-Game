@@ -1,5 +1,46 @@
+@font-face {
+    font-family: 'pixelFont';
+    src: url(../fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf);
+}
+
+div.scoreDisplay {
+    width: 600px;
+    margin: auto;
+
+}
+
+#score {
+    text-align:left ;
+    margin: 0px;
+
+}
+
+div.gameObjects {
+    display: none;
+}
+
+#menuText {
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'pixelFont';
+    font-size: 60px;
+    color: greenyellow;
+}
+
+#menuButton {
+    position: relative;
+    top: 450px;
+    display: block;
+    margin: auto;
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: orange;
+    
+}
 
 div.game {
+
     width: 600px;
     height: 800px;
     border: 1px solid black;
@@ -9,15 +50,15 @@ div.game {
     /* Without overflow being hidden the tubes go outside of the game's border */
     overflow: hidden;
     
+    
   
   }
-
-
 
 div.tubeTop {
     width: 75px;
     height: 550px;
-    background-color: green;
+    background-image: url(../images/tubedown.png);
+    background-position: bottom;
     position: relative;
 
     animation: tubeMove 3s infinite linear;
@@ -35,7 +76,7 @@ div.hole {
 div.tubeBottom {
     width: 75px;
     height: 800px;
-    background-color: green;
+    background-image: url(../images/tubeup.png);
     position: relative;
     animation: tubeMove 3s infinite linear;
 
