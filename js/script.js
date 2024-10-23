@@ -2,7 +2,7 @@
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
-  };
+};
 
 
 function checkIfLoggedIn() {
@@ -31,12 +31,12 @@ function register() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
-    
+
     //checks whether either fields are empty if so returns an alert
     if (userId === "" || email === "" || password === "") {
         return alert("All fields must be filled out!")
     }
-    
+
     //Returns an alert if email is invalid
     if ((validateEmail(email)) == false) {
         return alert("Please enter a valid email address!")
@@ -63,13 +63,14 @@ function register() {
         var dataToWrite = {
             userId: userId,
             email: email,
-            password: password
+            password: password,
+            highscore: 0,
         };
 
         parseData.push(dataToWrite);
         localStorage.setItem("userdata", JSON.stringify(parseData));
         alert("Registration Successful");
-        
+
     };
 
 }
@@ -104,10 +105,42 @@ function login() {
             return alert("Wrong email or password")
         }
     };
+}
 
+function getUserScore() {
+    var user = sessionStorage.getItem("loggedUsr");
+    var parseData = JSON.parse(localStorage.getItem("userdata"));
+    for (let i = 0; i < parseData.length; i++) {
+        ;
+        if (parseData[i].userId == user) {
+            return parseData[i].highscore;
+        }
+
+
+    }
+
+}
+function updateUsrScore(score) {
+    var user = sessionStorage.getItem("loggedUsr");
+    var parseData = JSON.parse(localStorage.getItem("userdata"));
+    for (let i = 0; i < parseData.length; i++) {
+        ;
+        if (parseData[i].userId == user) {
+            if (parseData[i].highscore < score) {
+                parseData[i].highscore = score;
+                localStorage.setItem("userdata", JSON.stringify(parseData));
+                hiScore.innerText = "Highscore: " + score;
+
+
+            } else {
+                break
+            }
+        }
+    }
 
 
 }
+
 
 //Logout
 function logout() {

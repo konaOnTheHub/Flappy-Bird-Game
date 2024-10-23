@@ -7,6 +7,8 @@ var hole = document.getElementsByClassName("hole")[0];
 var bird = document.getElementsByClassName("bird")[0];
 
 var scoreDisplay = document.getElementById("score");
+var hiScore = document.getElementById("hiScore");
+hiScore.innerText = "Highscore: " + getUserScore();
 
 let score = 0;
 let stopGravity = 1;
@@ -29,14 +31,19 @@ function switchObjects(state) {
 }
 
 
+
 //Everytime the animation iterates it generates a new pos for the hole.
 tubeTop.addEventListener("animationiteration", () => {
-  var ranNum = Math.random() * (550 - 100) + 100;
-  //Does this by assigning a new height to the top tube thus pushing the hole element down.
-  tubeTop.style.height = ranNum + "px";
-  score = score + 1
+  randomHoleGenerator();
+  score = score + 1;
   scoreDisplay.innerText = "Score: " + score;
 });
+
+function randomHoleGenerator () {
+  var ranNum = Math.random() * (550 - 50) + 50;
+  //Does this by assigning a new height to the top tube thus pushing the hole element down.
+  tubeTop.style.height = ranNum + "px";
+}
 
 //Function to return the position of "el"
 function getOffset(el) {
@@ -59,22 +66,27 @@ var gravity = setInterval(function () {
     marginVal = marginVal + 3;
     if (marginVal >= 750) {
       death()
+      console.log("debug gravity")
     };
     bird.style.marginTop = marginVal + "px"
   };
-}, 16)
+}, 10)
 
 
 //Collision detection
 var collision = setInterval(function () {
+  if (gameState == 0) {
+    return
+  }
   //if x axis intersects with bird
-  if (getOffset(tubeTop).left <= getOffset(bird).right) {
+  if (getOffset(tubeTop).left <= getOffset(bird).right && getOffset(tubeTop).right > getOffset(bird).left) {
     //Checks if the bird in the hole
     if (getOffset(bird).top >= getOffset(hole).top && getOffset(bird).bottom <= getOffset(hole).bottom) {
       return
 
     } else {
       death()
+      console.log("debug collision")
 
     }
 
@@ -103,8 +115,8 @@ function jump() {
     if (marginVal <= 0) {
 
       clearInterval(gradualJump);
-      console.log("debug")
       death();
+      console.log("debug jump")
 
     }
     count = count - 1;
@@ -123,13 +135,17 @@ function jump() {
 
 
 function death() {
-  switchObjects(0);
+  updateUsrScore(score);
+
   stopGravity = 1;
+  switchObjects(0);
   alert("ur dead");
 
 };
 
 function play() {
+  scoreDisplay.innerText = "Score: 0";
+  randomHoleGenerator();
   switchObjects(1);
   score = 0;
   stopGravity = 0;
