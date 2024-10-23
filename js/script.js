@@ -101,10 +101,9 @@ function login() {
             return alert("Login succesful")
 
 
-        } else {
-            return alert("Wrong email or password")
         }
     };
+    return alert("Wrong email or password")
 }
 
 function getUserScore() {
