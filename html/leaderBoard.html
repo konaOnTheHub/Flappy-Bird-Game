@@ -13,7 +13,10 @@
         <li><a href="./leaderBoard.html" class="active">Leaderboard</a></li>
         <li style="float:right"><a onclick="logout()">Logout</a></li>
     </ul>
+    
     <div id="target">
+        <h1>Leaderboard</h1>
+        <h2 id="h2LeaderboardText"></h2>
     </div>
 
 </body>
@@ -21,5 +24,7 @@
 <script src="../js/leaderBoard.js"></script>
 <script>
     checkIfLoggedIn();
+    userPos();
+
 </script>
 </html>
