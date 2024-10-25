@@ -1,14 +1,24 @@
+//Import main menu and game elements as a whole
 var menuObjects = document.getElementsByClassName("menuObjects")[0];
 var gameObjects = document.getElementsByClassName("gameObjects")[0];
 
+
+//Import game elements individually
 var tubeTop = document.getElementsByClassName("tubeTop")[0];
 var tubeBottom = document.getElementsByClassName("tubeBottom")[0];
 var hole = document.getElementsByClassName("hole")[0];
 var bird = document.getElementsByClassName("bird")[0];
 
+
+//import score and highscore elements
 var scoreDisplay = document.getElementById("score");
 var hiScore = document.getElementById("hiScore");
 hiScore.innerText = "Highscore: " + getUserScore();
+
+
+//sound import
+var flapSound = new Audio('../audio/flap.mp3');
+var deathSound = new Audio('../audio/death.mp3');
 
 let score = 0;
 let stopGravity = 1;
@@ -61,13 +71,15 @@ function getOffset(el) {
 
 //gravity
 var gravity = setInterval(function () {
-  if (stopGravity == 0) {
+  if (stopGravity == 0 && gameState == 1) {
     var x = getComputedStyle(bird);
     var marginVal = parseInt(x.marginTop);
     marginVal = marginVal + 3;
+    //If bird reaches the bottom (750px) call death function
     if (marginVal >= 750) {
-      death()
-      console.log("debug gravity")
+      console.log(stopGravity);
+      death();
+      console.log("debug gravity");
     };
     bird.style.marginTop = marginVal + "px"
   };
@@ -101,7 +113,7 @@ function jump() {
   if (gameState == 0) {
     return
   }
-
+  playSound(1);
   stopGravity = 1;
   var count = 20
   //Get current margin value
@@ -113,11 +125,10 @@ function jump() {
     bird.style.backgroundImage = "url('../images/birdfly.png')"
     marginVal = marginVal - 5;
     bird.style.marginTop = marginVal + "px";
+    //if bird collides with the ceiling (margin of 0) then invoke death
     if (marginVal <= 0) {
-
-      clearInterval(gradualJump);
       death();
-      console.log("debug jump")
+      clearInterval(gradualJump);
 
     }
     count = count - 1;
@@ -133,15 +144,24 @@ function jump() {
   }, 15)
 }
 
+function playSound(x) {
+  if (x == 1) {
+    flapSound.pause();
+    flapSound.currentTime = 0;
+    flapSound.play();
+  } else if (x == 2) {
+    deathSound.play();
 
+  }
+}
 
 function death() {
+  playSound(2);
   updateUsrScore(score);
-
   stopGravity = 1;
   //change back to main menu
   switchObjects(0);
-  alert("ur dead");
+  
 
 };
 

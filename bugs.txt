@@ -1,2 +1,8 @@
 Double ur dead alert coming from gravity function
+It only happened if the user input jump just before dying setting stopGravity to = 0 allowing for gravity to keep going
+**Fixed by adding && gameState == 1
+
+Multiple ur dead alerts upon dying to hitting the ceiling and spamming M1
+
+
 Background not being seamless
