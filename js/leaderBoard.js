@@ -27,7 +27,7 @@ let players = sortPlayers()
 //Function that gets the current user's rank in relation to other user's highscores
 function userPos() {
     //Since we already sorted players based on their highscores we can use .findIndex() + 1 to determine the current user's rank.
-    document.getElementById("h2LeaderboardText").innerText = "Your current rank is: " + (players.findIndex(x => x.name === checkIfLoggedIn()) + 1);
+    document.getElementById("h2LeaderboardText").innerText = "Your current leaderboard position is: " + (players.findIndex(x => x.name === checkIfLoggedIn()) + 1);
 
 
 }
