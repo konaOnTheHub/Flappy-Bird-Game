@@ -16,8 +16,9 @@ let gameState = 0
 
 
 
-
+//Switches the main menu screen to the game screen and vice versa
 function switchObjects(state) {
+  //Does this by hiding the predefined HTML elements inside welcome.html of whichever screen we don't want to see
   if (state == 1) {
     menuObjects.style.display = "none";
     gameObjects.style.display = "unset";
@@ -38,8 +39,8 @@ tubeTop.addEventListener("animationiteration", () => {
   score = score + 1;
   scoreDisplay.innerText = "Score: " + score;
 });
-
-function randomHoleGenerator () {
+//Generates a new pos for the hole
+function randomHoleGenerator() {
   var ranNum = Math.random() * (550 - 50) + 50;
   //Does this by assigning a new height to the top tube thus pushing the hole element down.
   tubeTop.style.height = ranNum + "px";
@@ -138,6 +139,7 @@ function death() {
   updateUsrScore(score);
 
   stopGravity = 1;
+  //change back to main menu
   switchObjects(0);
   alert("ur dead");
 
@@ -146,8 +148,10 @@ function death() {
 function play() {
   scoreDisplay.innerText = "Score: 0";
   randomHoleGenerator();
+  //switch to the game screen
   switchObjects(1);
   score = 0;
   stopGravity = 0;
+  //resets birds position to default
   bird.style.marginTop = "250px";
 };

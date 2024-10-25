@@ -34,7 +34,7 @@ div.gameObjects {
     padding-left: 50px;
     padding-right: 50px;
     background-color: orange;
-    
+
 }
 
 div.game {
@@ -47,10 +47,10 @@ div.game {
     animation: animatedBackground 10s linear infinite;
     /* Without overflow being hidden the tubes go outside of the game's border */
     overflow: hidden;
-    
-    
-  
-  }
+
+
+
+}
 
 div.tubeTop {
     width: 75px;
@@ -96,14 +96,20 @@ div.bird {
 @keyframes animatedBackground {
     from {
         background-position: 0 0;
-      }
-      to {
+    }
+
+    to {
         background-position: 100% 0;
-      }
-}
-/* Makes the tubes move from right to left */
-@keyframes tubeMove {
-    from {left: 600px;}
-    to {left: -75px;}
+    }
 }
 
+/* Makes the tubes move from right to left */
+@keyframes tubeMove {
+    from {
+        left: 600px;
+    }
+
+    to {
+        left: -75px;
+    }
+}

@@ -1,10 +1,12 @@
+//This file contains eveything related to reading/manipulating user info
+
 
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 };
 
-
+//Called upon rendering pages that are supposed to be login only
 function checkIfLoggedIn() {
     const userLogged = sessionStorage.getItem("loggedUsr");
     //if user isnt logged in it forces them back to the login page
@@ -105,7 +107,7 @@ function login() {
     };
     return alert("Wrong email or password")
 }
-
+//fetches the highscore of the user that's currently logged in
 function getUserScore() {
     var user = sessionStorage.getItem("loggedUsr");
     var parseData = JSON.parse(localStorage.getItem("userdata"));
@@ -119,6 +121,7 @@ function getUserScore() {
     }
 
 }
+//Updates the current user's highscore if 'score' is greater than their highscore
 function updateUsrScore(score) {
     var user = sessionStorage.getItem("loggedUsr");
     var parseData = JSON.parse(localStorage.getItem("userdata"));
