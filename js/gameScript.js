@@ -18,7 +18,8 @@ hiScore.innerText = "Highscore: " + getUserScore();
 
 //sound import
 var flapSound = new Audio('../audio/flap.mp3');
-var deathSound = new Audio('../audio/death.mp3');
+var hitSound = new Audio('../audio/hit.mp3');
+var fallSound = new Audio('../audio/fall.mp3');
 
 let score = 0;
 let stopGravity = 1;
@@ -74,6 +75,7 @@ var gravity = setInterval(function () {
   if (stopGravity == 0 && gameState == 1) {
     var x = getComputedStyle(bird);
     var marginVal = parseInt(x.marginTop);
+    //we move the bird down by adding +3 to the current margin value
     marginVal = marginVal + 3;
     //If bird reaches the bottom (750px) call death function
     if (marginVal >= 750) {
@@ -83,7 +85,7 @@ var gravity = setInterval(function () {
     };
     bird.style.marginTop = marginVal + "px"
   };
-}, 10)
+}, 10) //happens every 10ms
 
 
 //Collision detection
@@ -150,8 +152,10 @@ function playSound(x) {
     flapSound.currentTime = 0;
     flapSound.play();
   } else if (x == 2) {
-    deathSound.play();
+    hitSound.play();
 
+  }else if (x == 3) {
+    fallSound.play();
   }
 }
 
@@ -159,11 +163,31 @@ function death() {
   playSound(2);
   updateUsrScore(score);
   stopGravity = 1;
-  //change back to main menu
-  switchObjects(0);
-  
+  gameState = 0;
+  deathAnimation();
 
+  
 };
+
+function deathAnimation() {
+  playSound(3);
+  var deathInterval = setInterval(function () {
+    bird.style.backgroundImage = "url('../images/birdfall.png')";
+    var x = getComputedStyle(bird);
+    var marginVal = parseInt(x.marginTop);
+    marginVal = marginVal + 3;
+    if (marginVal >= 750) {
+      clearInterval(deathInterval);
+      //change back to main menu
+      switchObjects(0);
+
+
+    }
+    bird.style.marginTop = marginVal + "px"
+
+  }, 3)
+
+}
 
 function play() {
   scoreDisplay.innerText = "Score: 0";
