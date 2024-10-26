@@ -41,6 +41,13 @@ div.container {
   padding: 16px;
 
 }
+#logo {
+  background: url(../images/logo.png) no-repeat center;
+  width: 120px;
+  height: 47px;
+  
+  
+}
 
 #submitButton {
   background-color: green; /* Green */
