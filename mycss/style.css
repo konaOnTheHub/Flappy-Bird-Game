@@ -41,16 +41,18 @@ div.container {
   padding: 16px;
 
 }
+
 #logo {
   background: url(../images/logo.png) no-repeat center;
   width: 120px;
   height: 47px;
-  
-  
+
+
 }
 
 #submitButton {
-  background-color: green; /* Green */
+  background-color: green;
+  /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -62,6 +64,7 @@ div.container {
   transition-duration: 0.4s;
   cursor: pointer;
 }
+
 #submitButton:hover {
   background-color: #f1f1f1;
   color: black;

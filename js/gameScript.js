@@ -27,7 +27,7 @@ let gameState = 0
 
 
 
-document.addEventListener("keypress", function(event) {
+document.addEventListener("keypress", function (event) {
   if (event.keyCode == 32) {
     jump();
   }
@@ -87,7 +87,6 @@ var gravity = setInterval(function () {
     if (marginVal >= 750) {
       console.log(stopGravity);
       death();
-      console.log("debug gravity");
     };
     bird.style.marginTop = marginVal + "px"
   };
@@ -107,7 +106,6 @@ var collision = setInterval(function () {
 
     } else {
       death()
-      console.log("debug collision")
 
     }
 
@@ -151,44 +149,52 @@ function jump() {
     }
   }, 15)
 }
-
+//Function responsible for playing audio
 function playSound(x) {
+  //plays flap sound if x = 1
   if (x == 1) {
+    //pause is necesarry in case the function is called before the previous flap hasn't completed playing
     flapSound.pause();
     flapSound.currentTime = 0;
     flapSound.play();
   } else if (x == 2) {
     hitSound.play();
 
-  }else if (x == 3) {
+  } else if (x == 3) {
     fallSound.play();
   }
 }
-
+//Function called upon collision detection of any kind
 function death() {
+  //Plays the hit sound
   playSound(2);
   updateUsrScore(score);
   stopGravity = 1;
   gameState = 0;
   deathAnimation();
 
-  
-};
 
+};
+//Function responsible for the fall animation of the bird upon death
 function deathAnimation() {
+  //plays hit sound
   playSound(3);
+  //works very similarly to the gravity function
+  //We use a interval function to gradually add 3px to the birds top margin value thus moving the object down
   var deathInterval = setInterval(function () {
     bird.style.backgroundImage = "url('../images/birdfall.png')";
     var x = getComputedStyle(bird);
     var marginVal = parseInt(x.marginTop);
     marginVal = marginVal + 3;
     if (marginVal >= 750) {
+      //if we reach the bottom stop the function
       clearInterval(deathInterval);
       //change back to main menu
       switchObjects(0);
 
 
     }
+    //otherwise add the new margin value to the bird element
     bird.style.marginTop = marginVal + "px"
 
   }, 3)
