@@ -6,12 +6,16 @@ h2 {
   text-align: center;
 }
 
+#target {
+  width: 600px;
+  margin: auto;
+}
 
 table,
 td,
 th {
   border: solid 3px black;
-  text-align: left;
+  text-align: center;
 
 
 
@@ -20,12 +24,13 @@ th {
 
 table {
   border-collapse: collapse;
-  width: 50%;
-  margin: auto;
+  width: 600px;
 }
 
 
-th,
-td {
-  padding: 15px;
+
+th, td {
+  width: 275px;
+  padding: 8px;
 }
+

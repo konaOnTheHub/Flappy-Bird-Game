@@ -3,6 +3,10 @@
     src: url(../fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf);
 }
 
+#welcomeMessage {
+    text-align: center;
+}
+
 div.scoreDisplay {
     width: 600px;
     margin: auto;

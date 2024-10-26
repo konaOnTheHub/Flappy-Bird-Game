@@ -27,6 +27,12 @@ let gameState = 0
 
 
 
+document.addEventListener("keypress", function(event) {
+  if (event.keyCode == 32) {
+    jump();
+  }
+});
+
 //Switches the main menu screen to the game screen and vice versa
 function switchObjects(state) {
   //Does this by hiding the predefined HTML elements inside welcome.html of whichever screen we don't want to see

@@ -35,7 +35,7 @@ function userPos() {
 
 //Leaderboard
 const newTable = document.createElement("table");
-newTable.innerHTML = "<thead><th>Rank</th><th>Player</th><th>Highscore</th></thead>";
+newTable.innerHTML = "<thead><th id='rankTh'>Rank</th><th>Player</th><th>Highscore</th></thead>";
 //Populate table with a simple for loop going through each object of the already sorted players variable
 for (player of players) {
     const newRow = document.createElement("tr");

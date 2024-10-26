@@ -42,6 +42,24 @@ div.container {
 
 }
 
+#submitButton {
+  background-color: green; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+#submitButton:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
 /* Styles forms on login and registration pages */
 input[type=text],
 input[type=email],
@@ -55,7 +73,8 @@ input[type=password] {
 }
 
 input[type=text]:focus,
-input[type=password]:focus {
+input[type=password]:focus,
+input[type=email]:focus {
   background-color: #ddd;
   outline: none;
 }
