@@ -1,25 +1,25 @@
 //Import main menu and game elements as a whole
-var menuObjects = document.getElementsByClassName("menuObjects")[0];
-var gameObjects = document.getElementsByClassName("gameObjects")[0];
+const menuObjects = document.getElementsByClassName("menuObjects")[0];
+const gameObjects = document.getElementsByClassName("gameObjects")[0];
 
 
 //Import game elements individually
-var tubeTop = document.getElementsByClassName("tubeTop")[0];
-var tubeBottom = document.getElementsByClassName("tubeBottom")[0];
-var hole = document.getElementsByClassName("hole")[0];
-var bird = document.getElementsByClassName("bird")[0];
+const tubeTop = document.getElementsByClassName("tubeTop")[0];
+const tubeBottom = document.getElementsByClassName("tubeBottom")[0];
+const hole = document.getElementsByClassName("hole")[0];
+const bird = document.getElementsByClassName("bird")[0];
 
 
 //import score and highscore elements
-var scoreDisplay = document.getElementById("score");
-var hiScore = document.getElementById("hiScore");
+const scoreDisplay = document.getElementById("score");
+const hiScore = document.getElementById("hiScore");
 hiScore.innerText = "Highscore: " + getUserScore();
 
 
 //sound import
-var flapSound = new Audio('../audio/flap.mp3');
-var hitSound = new Audio('../audio/hit.mp3');
-var fallSound = new Audio('../audio/fall.mp3');
+const flapSound = new Audio('../audio/flap.mp3');
+const hitSound = new Audio('../audio/hit.mp3');
+const fallSound = new Audio('../audio/fall.mp3');
 
 let score = 0;
 let stopGravity = 1;
@@ -58,7 +58,7 @@ tubeTop.addEventListener("animationiteration", () => {
 });
 //Generates a new pos for the hole
 function randomHoleGenerator() {
-  var ranNum = Math.random() * (550 - 50) + 50;
+  let ranNum = Math.random() * (550 - 50) + 50;
   //Does this by assigning a new height to the top tube thus pushing the hole element down.
   tubeTop.style.height = ranNum + "px";
 }
@@ -77,10 +77,10 @@ function getOffset(el) {
 
 
 //gravity
-var gravity = setInterval(function () {
+let gravity = setInterval(function () {
   if (stopGravity == 0 && gameState == 1) {
-    var x = getComputedStyle(bird);
-    var marginVal = parseInt(x.marginTop);
+    let x = getComputedStyle(bird);
+    let marginVal = parseInt(x.marginTop);
     //we move the bird down by adding +3 to the current margin value
     marginVal = marginVal + 3;
     //If bird reaches the bottom (750px) call death function
@@ -94,7 +94,7 @@ var gravity = setInterval(function () {
 
 
 //Collision detection
-var collision = setInterval(function () {
+let collision = setInterval(function () {
   if (gameState == 0) {
     return
   }
@@ -121,12 +121,12 @@ function jump() {
   }
   playSound(1);
   stopGravity = 1;
-  var count = 20
+  let count = 20
   //Get current margin value
-  var x = getComputedStyle(bird);
-  var marginVal = parseInt(x.marginTop);
+  let x = getComputedStyle(bird);
+  let marginVal = parseInt(x.marginTop);
   //This function removes 100px from the birds top margin gradually so it looks smooth
-  var gradualJump = setInterval(function () {
+  let gradualJump = setInterval(function () {
     //Makes the bird look up slightly by changing the bg image
     bird.style.backgroundImage = "url('../images/birdfly.png')"
     marginVal = marginVal - 5;
@@ -181,10 +181,10 @@ function deathAnimation() {
   playSound(3);
   //works very similarly to the gravity function
   //We use a interval function to gradually add 3px to the birds top margin value thus moving the object down
-  var deathInterval = setInterval(function () {
+  let deathInterval = setInterval(function () {
     bird.style.backgroundImage = "url('../images/birdfall.png')";
-    var x = getComputedStyle(bird);
-    var marginVal = parseInt(x.marginTop);
+    let x = getComputedStyle(bird);
+    let marginVal = parseInt(x.marginTop);
     marginVal = marginVal + 3;
     if (marginVal >= 750) {
       //if we reach the bottom stop the function

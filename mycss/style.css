@@ -6,6 +6,16 @@ html {
   background-color: grey;
 }
 
+#logo {
+  background: url(../images/logo.png) no-repeat center;
+  width: 120px;
+  height: 47px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
 /* NAV bar */
 ul {
   list-style-type: none;
@@ -42,13 +52,6 @@ div.container {
 
 }
 
-#logo {
-  background: url(../images/logo.png) no-repeat center;
-  width: 120px;
-  height: 47px;
-
-
-}
 
 #submitButton {
   background-color: green;
@@ -73,6 +76,7 @@ div.container {
 /* Styles forms on login and registration pages */
 input[type=text],
 input[type=email],
+input[type=tel],
 input[type=password] {
   width: 100%;
   padding: 15px;
@@ -89,7 +93,72 @@ input[type=email]:focus {
   outline: none;
 }
 
+#message {
+  display:none;
+  background: gray;
+  color: #000;
+  position: relative;
+  padding-left: 20px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
 hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
+}
+
+
+/* Leader board table styling */
+#target {
+  width: 600px;
+  margin: auto;
+}
+
+table,
+td,
+th {
+  border: solid 3px black;
+  text-align: center;
+
+
+
+
+}
+
+table {
+  border-collapse: collapse;
+  width: 600px;
+}
+
+
+
+th,
+td {
+  width: 275px;
+  padding: 8px;
 }

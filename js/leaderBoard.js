@@ -1,8 +1,8 @@
 
 //Sorts the user objects from localstorage based on their highscores in descending order
 function sortPlayers() {
-    var playerArray = []
-    var parseData = JSON.parse(localStorage.getItem("userdata"));
+    let playerArray = []
+    let parseData = JSON.parse(localStorage.getItem("userdata"));
     //We do this by populating playerArray with .push using a simple for loop
     for (let i = 0; i < parseData.length; i++) {
         playerArray.push({
