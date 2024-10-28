@@ -5,32 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
+    <!--Link Stylesheet-->
     <link rel="stylesheet" href="../mycss/style.css">
-    <link rel="stylesheet" href="../mycss/leaderboardStyle.css">
+    <!--Set favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 </head>
 
 <body>
+    <!--Nav Bar-->
     <ul>
+        
         <li id="logo"></li>
-        <li><a href="./welcome.html">Game</a></li>
+        <li class="loginReq"><a href="./welcome.html">Game</a></li>
+        <li class="guestOnly"><a href="./login.html">Login</a></li>
+        <li class="guestOnly"><a href="./reg.html">Register</a></li>
         <li><a href="./leaderBoard.html" class="active">Leaderboard</a></li>
-        <li style="float:right"><a onclick="logout()">Logout</a></li>
+        <li class="loginReq" style="float:right"><a onclick="logout()">Logout</a></li>
     </ul>
-
+    <!--Target for leaderbord which we populate with JS-->
     <div id="target">
         <h1>Leaderboard</h1>
+        <!--Upon login it will display the logged in users rank-->
         <h2 id="h2LeaderboardText"></h2>
         <hr style="clear:both;" />
     </div>
-
+    <script src="../js/script.js"></script>
+    <script src="../js/leaderBoard.js"></script>
+    <script>
+        userPos();
+    
+    </script>
+    
 </body>
-<script src="../js/script.js"></script>
-<script src="../js/leaderBoard.js"></script>
-<script>
-    checkIfLoggedIn();
-    userPos();
-
-</script>
-
 </html>

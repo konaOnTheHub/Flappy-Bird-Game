@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!--Link Styesheet-->
     <link rel="stylesheet" href="../mycss/style.css">
+    <!--Set favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 
 </head>
 
 <body>
+    <!--Nav Bar-->
     <ul>
         <li id="logo"></li>
         <li><a class="active" href="./login.html">Login</a></li>
@@ -18,23 +21,27 @@
         <li><a href="./leaderBoard.html">Leaderboard</a></li>
 
     </ul>
+    <!--Container for forms-->
     <div class="container">
         <h1>Login</h1>
+        <h2>You must be logged in order to play the game</h2>
+        <!--Page break-->
         <hr>
         <form>
+            <!--Email form-->
             <label for="email"></label>
             <input type="email" id="email" placeholder="Email" spellcheck="false"> <br>
 
-
+            <!--Password form-->
             <label for="password"></label>
             <input type="password" id="password" placeholder="Password" spellcheck="false"> <br>
             <hr>
+            <!--Button form-->
             <button id="submitButton" type="Submit" onclick="login()">Login</button>
         </form>
 
     </div>
-
+    <script src="../js/script.js"></script>
 </body>
-<script src="../js/script.js"></script>
 
 </html>

@@ -1,12 +1,13 @@
+/* Font import for the pixelated font used in the main menu of the game */
 @font-face {
     font-family: 'pixelFont';
     src: url(../fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf);
 }
-
+/* Centers the welcome message */
 #welcomeMessage {
     text-align: center;
 }
-
+/* Styles the div for the score as well as the highscore display */
 div.scoreDisplay {
     width: 600px;
     margin: auto;
@@ -14,11 +15,13 @@ div.scoreDisplay {
 }
 
 
-
+/* Hides the game objects by default */
+/* Game objects are the bird and the pipes */
+/* This is so that menu objects may be overlayed by default */
 div.gameObjects {
     display: none;
 }
-
+/* Styles "Flappy Bird Game" */
 #menuText {
     margin-top: 100px;
     text-align: center;
@@ -26,7 +29,7 @@ div.gameObjects {
     font-size: 60px;
     color: greenyellow;
 }
-
+/* Styles the Play button */
 #menuButton {
     position: relative;
     top: 450px;
@@ -40,14 +43,16 @@ div.gameObjects {
     background-color: orange;
 
 }
-
+/* Styles the game 'canvas' */
 div.game {
 
     width: 600px;
     height: 800px;
     border: 1px solid black;
     margin: auto;
+    /* background img */
     background-image: url(../images/background.png);
+    /* Using keyframes we animate it from left to right */
     animation: animatedBackground 10s linear infinite;
     /* Without overflow being hidden the tubes go outside of the game's border */
     overflow: hidden;
@@ -55,39 +60,44 @@ div.game {
 
 
 }
-
+/* The top pipe */
 div.tubeTop {
     width: 75px;
     height: 550px;
     background-image: url(../images/tubedown.png);
     background-position: bottom;
     position: relative;
-
+    /* Animate object to move from right to left */
     animation: tubeMove 3s infinite linear;
 
 }
-
+/* The hole between the pipes */
 div.hole {
     width: 75px;
     height: 200px;
+    /* We make it transparent */
     background-color: transparent;
     position: relative;
+    /* right to left animation  */
     animation: tubeMove 3s infinite linear;
 }
-
+/* Bottom pipe */
 div.tubeBottom {
     width: 75px;
     height: 800px;
     background-image: url(../images/tubeup.png);
     position: relative;
+    /* Right to left animation */
     animation: tubeMove 3s infinite linear;
 
 }
-
+/* bird */
 div.bird {
     width: 50px;
     height: 50px;
+    /* Position it to the middle */
     margin-top: 250px;
+    /* Move slightly away from the left border */
     margin-left: 50px;
     background-image: url("../images/bird.png");
     position: absolute;

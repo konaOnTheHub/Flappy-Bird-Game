@@ -9,7 +9,7 @@ function validateEmail(email) {
 function validatePhone(num) {
     if (num.length != 11) {
         return false
-    
+
     } else if (num.match(/^[0-9]+$/) == null) {
         return false
     }
@@ -19,11 +19,12 @@ function validatePhone(num) {
 };
 //Called upon rendering pages that are supposed to be login only
 function checkIfLoggedIn() {
-    const userLogged = sessionStorage.getItem("loggedUsr");
+    let userLogged = sessionStorage.getItem("loggedUsr");
     //if user isnt logged in it forces them back to the login page
     if (userLogged == null) {
         window.location.href = "login.html"
     }
+
 
     return userLogged
 }
@@ -37,51 +38,51 @@ let number = document.getElementById("number");
 let length = document.getElementById("length");
 
 //User clicking the password form will show the 'message' div
-myInput.onfocus = function() {
+myInput.onfocus = function () {
     document.getElementById("message").style.display = "block";
-  };
+};
 //Clicking elsewhere hides 'message'
-myInput.onblur = function() {
+myInput.onblur = function () {
     document.getElementById("message").style.display = "none";
-  };
+};
 
 //As the user types we check against the validation criteria and update 'message' accordingly
-myInput.onkeyup = function() {
+myInput.onkeyup = function () {
     // Validate lowercase letters
-  if(myInput.value.match(/[a-z]/g)) {  
-    letter.classList.remove("invalid");
-    letter.classList.add("valid");
-  } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
-  }
-  
-  // Validate capital letters
-  if(myInput.value.match(/[A-Z]/g)) {  
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
-  } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
-  }
+    if (myInput.value.match(/[a-z]/g)) {
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+    } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+    }
 
-  // Validate numbers
-  if(myInput.value.match(/[0-9]/g)) {  
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-  }
-  
-  // Validate length
-  if(myInput.value.length >= 8) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
-  }
+    // Validate capital letters
+    if (myInput.value.match(/[A-Z]/g)) {
+        capital.classList.remove("invalid");
+        capital.classList.add("valid");
+    } else {
+        capital.classList.remove("valid");
+        capital.classList.add("invalid");
+    }
+
+    // Validate numbers
+    if (myInput.value.match(/[0-9]/g)) {
+        number.classList.remove("invalid");
+        number.classList.add("valid");
+    } else {
+        number.classList.remove("valid");
+        number.classList.add("invalid");
+    }
+
+    // Validate length
+    if (myInput.value.length >= 8) {
+        length.classList.remove("invalid");
+        length.classList.add("valid");
+    } else {
+        length.classList.remove("valid");
+        length.classList.add("invalid");
+    }
 }
 
 
@@ -111,10 +112,12 @@ function register() {
         return alert("Please enter a valid email address!")
 
     };
+    //Returns alert if phone number is invalid
     if (validatePhone(phoneNum) == false) {
         return alert("Phone number must be only digits and 11 characters long")
 
     }
+    //Returns alert if password is invalid
     if (letter.classList.contains("invalid") || capital.classList.contains("invalid") || number.classList.contains("invalid") || number.classList.contains("invalid")) {
         return alert("Password is invalid");
     }
@@ -143,10 +146,14 @@ function register() {
             password: password,
             highscore: 0,
         };
-
+        //Add newly created object to the already existing array of user objects
         parseData.push(dataToWrite);
+        //Write out to local storage
         localStorage.setItem("userdata", JSON.stringify(parseData));
+        //Change page view to login page
+        window.location.href = "login.html"
         alert("Registration Successful");
+
 
     };
 
@@ -182,6 +189,16 @@ function login() {
     };
     return alert("Wrong email or password")
 }
+
+//Logout
+function logout() {
+    //Removes user from session storage
+    sessionStorage.removeItem("loggedUsr");
+    //Navigates the window back to the login page
+    window.location.href = "login.html"
+}
+
+
 //fetches the highscore of the user that's currently logged in
 function getUserScore() {
     let user = sessionStorage.getItem("loggedUsr");
@@ -218,11 +235,3 @@ function updateUsrScore(score) {
 
 }
 
-
-//Logout
-function logout() {
-    //Removes user from session storage
-    sessionStorage.removeItem("loggedUsr");
-    //Navigates the window back to the login page
-    window.location.href = "login.html"
-}

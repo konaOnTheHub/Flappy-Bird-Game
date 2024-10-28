@@ -5,13 +5,13 @@
 html {
   background-color: grey;
 }
-
+/*Sets the flappy bird logo in the top left*/
 #logo {
   background: url(../images/logo.png) no-repeat center;
   width: 120px;
   height: 47px;
 }
-
+/*Centers h1 and h2s */
 h1, h2 {
   text-align: center;
 }
@@ -25,11 +25,9 @@ ul {
   overflow: hidden;
   background-color: #333;
 }
-
 li {
   float: left;
 }
-
 li a {
   display: block;
   color: white;
@@ -37,11 +35,11 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-
+/* Hovering turns nav bar button black */
 li a:hover {
   background-color: #111;
 }
-
+/* Website in view turns that element green */
 .active {
   background-color: green;
 }
@@ -52,10 +50,9 @@ div.container {
 
 }
 
-
+/* Styles submit button on login and registers pages */
 #submitButton {
   background-color: green;
-  /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -67,7 +64,7 @@ div.container {
   transition-duration: 0.4s;
   cursor: pointer;
 }
-
+/* Different color when button is hovered with cursor */
 #submitButton:hover {
   background-color: #f1f1f1;
   color: black;
@@ -85,15 +82,16 @@ input[type=password] {
   border: none;
   background: #f1f1f1;
 }
-
+/* When clicked it turns forms to a darker shade of gray */
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=email]:focus {
   background-color: #ddd;
   outline: none;
 }
-
+/* Styles the password validation checkbox panel */
 #message {
+  /* By default this is hidden and is only shown when password form is focused */
   display:none;
   background: gray;
   color: #000;
