@@ -134,6 +134,10 @@ function register() {
             alert("Email already in use");
             userExists = 1
             break;
+        } else if (parseData[i].phoneNum == phoneNum) {
+            alert("Phone number is already in use")
+            userExists = 1
+            break;
         }
 
     };
