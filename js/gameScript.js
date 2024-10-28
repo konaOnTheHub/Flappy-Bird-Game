@@ -24,6 +24,7 @@ const fallSound = new Audio('../audio/fall.mp3');
 let score = 0;
 let stopGravity = 1;
 let gameState = 0
+let dontIncrementScore = 0
 
 
 
@@ -53,8 +54,10 @@ function switchObjects(state) {
 //Everytime the animation iterates it generates a new pos for the hole.
 tubeTop.addEventListener("animationiteration", () => {
   randomHoleGenerator();
-  score = score + 1;
-  scoreDisplay.innerText = "Score: " + score;
+  if (dontIncrementScore == 0) {
+    score = score + 1;
+    scoreDisplay.innerText = "Score: " + score;
+  }
 });
 //Generates a new pos for the hole
 function randomHoleGenerator() {
@@ -177,6 +180,8 @@ function death() {
 };
 //Function responsible for the fall animation of the bird upon death
 function deathAnimation() {
+  dontIncrementScore = 1
+
   //plays hit sound
   playSound(3);
   //works very similarly to the gravity function
@@ -202,6 +207,7 @@ function deathAnimation() {
 }
 
 function play() {
+  dontIncrementScore = 0
   scoreDisplay.innerText = "Score: 0";
   randomHoleGenerator();
   //switch to the game screen
