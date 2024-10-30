@@ -33,11 +33,11 @@ let myInputPhone = document.getElementById("phoneNum");
 let lengthPhone = document.getElementById("lengthPhone");
 let onlyDigits = document.getElementById("onlyDigits");
 
-//User clicking the password form will show the 'message' div
+//User clicking the password form will show the 'messagePhoneNum' div
 myInputPhone.onfocus = function () {
     document.getElementById("messagePhoneNum").style.display = "block";
 };
-//Clicking elsewhere hides 'message'
+//Clicking elsewhere hides 'messagePhoneNum'
 myInputPhone.onblur = function () {
     document.getElementById("messagePhoneNum").style.display = "none";
 };
@@ -45,17 +45,23 @@ myInputPhone.onblur = function () {
 myInputPhone.onkeyup = function () {
     //Length
     if (myInputPhone.value.length == 11) {
+        //if 11 turns textbox green
         lengthPhone.classList.remove("invalid");
         lengthPhone.classList.add("valid");
 
     } else {
+        //if not turns it red
         lengthPhone.classList.remove("valid");
         lengthPhone.classList.add("invalid");
     }
+    //Only digits
     if (myInputPhone.value.match(/^[0-9]+$/) == null) {
+        //if theres characters other than digits present
+        //turns text red
         onlyDigits.classList.remove("valid");
         onlyDigits.classList.add("invalid");
     } else {
+        //If its only digits then turns it green
         onlyDigits.classList.remove("invalid");
         onlyDigits.classList.add("valid");
     }

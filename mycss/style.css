@@ -89,9 +89,9 @@ input[type=email]:focus {
   background-color: #ddd;
   outline: none;
 }
-/* Styles the password validation checkbox panel */
+/* Styles the password and phone number validation checkbox panels */
 #message, #messagePhoneNum {
-  /* By default this is hidden and is only shown when password form is focused */
+  /* By default this is hidden and is only shown when password or phone number form is focused */
   display:none;
   background: gray;
   color: #000;
