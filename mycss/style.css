@@ -3,7 +3,16 @@
 }
 
 html {
-  background-color: grey;
+  background-color: #272b30;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #c8c8c8;
+}
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px;
 }
 /*Sets the flappy bird logo in the top left*/
 #logo {
@@ -93,7 +102,7 @@ input[type=email]:focus {
 #message, #messagePhoneNum {
   /* By default this is hidden and is only shown when password or phone number form is focused */
   display:none;
-  background: gray;
+  
   color: #000;
   position: relative;
   padding-left: 20px;

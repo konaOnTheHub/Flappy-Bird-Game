@@ -33,25 +33,33 @@
         <hr style="clear:both;" />
 
     </div>
-    <!--Div container for the game-->
-    <div class="game">
-        <!--Div container for the menu objects-->
-        <div class="menuObjects">
-            <h1 id="menuText">Flappy Bird Game</h1>
-            <!--Play button-->
-            <button type="button" id="menuButton" onclick="play()">Play!</button>
-        </div>
-        <!--SEPERATE container for game objects-->
-        <!--Be default this is not displayed using CSS-->
-        <div class="gameObjects">
-            <!--Game objects are represented with the following divs further styled in CSS-->
-            <div class="bird"></div>
-            <div class="tubeTop"></div>
-            <div class="hole"></div>
-            <div class="tubeBottom"></div>
-        </div>
 
-
+    <div id="wrapper">
+        <!--Div container for the game-->
+        <div class="game">
+            <!--Div container for the menu objects-->
+            <div class="menuObjects">
+                <h1 id="menuText">Flappy Bird Game</h1>
+                <!--Play button-->
+                <button type="button" id="menuButton" onclick="play()">Play!</button>
+            </div>
+            <!--SEPERATE container for game objects-->
+            <!--Be default this is not displayed using CSS-->
+            <div class="gameObjects">
+                <!--Game objects are represented with the following divs further styled in CSS-->
+                <div class="bird"></div>
+                <div class="tubeTop"></div>
+                <div class="hole"></div>
+                <div class="tubeBottom"></div>
+            </div>
+        </div>
+        <div id="howToPlay">
+            <h2>Tutorial<h2>
+            <p>To play press the orange play button.</p>
+            <p>You can fly the bird by pressing left-click or space bar</p>
+            <p>Your goal is to fly the bird as far as you can without hitting a pipe.</p>
+            
+        </div>
     </div>
     <!--JS links-->
     <script src="../js/script.js"></script>
@@ -62,13 +70,13 @@
         function displayUsername() {
             const user = checkIfLoggedIn();
             const welcomeMessage = document.getElementById("welcomeMessage");
-    
+
             if (user) {
                 welcomeMessage.innerText = "Welcome, " + user + "!";
             }
         }
         displayUsername();
-    
+
     </script>
 </body>
 

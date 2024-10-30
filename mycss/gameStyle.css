@@ -43,16 +43,30 @@ div.gameObjects {
     background-color: orange;
 
 }
+
+#wrapper {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#howToPlay {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    background-color: #2e3338;
+    margin-left: 100px;
+}
+
 /* Styles the game 'canvas' */
 div.game {
-
     width: 600px;
     height: 800px;
     border: 1px solid black;
-    margin: auto;
+    margin-left: 400px;
     /* background img */
     background-image: url(../images/background.png);
-    /* Using keyframes we animate it from left to right */
+    /* Using keyframes we animate it from right to left */
     animation: animatedBackground 10s linear infinite;
     /* Without overflow being hidden the tubes go outside of the game's border */
     overflow: hidden;
@@ -60,6 +74,7 @@ div.game {
 
 
 }
+
 /* The top pipe */
 div.tubeTop {
     width: 75px;
