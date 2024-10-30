@@ -28,7 +28,7 @@ function checkIfLoggedIn() {
 
     return userLogged
 }
-//Phone number validation for the visual tick boxes on the registration page
+//Phone number validation
 let myInputPhone = document.getElementById("phoneNum");
 let lengthPhone = document.getElementById("lengthPhone");
 let onlyDigits = document.getElementById("onlyDigits");
@@ -43,7 +43,6 @@ myInputPhone.onblur = function () {
 };
 
 myInputPhone.onkeyup = function () {
-    //Length
     if (myInputPhone.value.length == 11) {
         lengthPhone.classList.remove("invalid");
         lengthPhone.classList.add("valid");
@@ -52,17 +51,10 @@ myInputPhone.onkeyup = function () {
         lengthPhone.classList.remove("valid");
         lengthPhone.classList.add("invalid");
     }
-    if (myInputPhone.value.match(/^[0-9]+$/) == null) {
-        onlyDigits.classList.remove("valid");
-        onlyDigits.classList.add("invalid");
-    } else {
-        onlyDigits.classList.remove("invalid");
-        onlyDigits.classList.add("valid");
-    }
 }
 
 
-//Password validation for the validation tickboxes on the registration page
+//Password validation
 
 let myInput = document.getElementById("password");
 let letter = document.getElementById("letter");

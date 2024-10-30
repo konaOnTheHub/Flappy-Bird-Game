@@ -106,7 +106,7 @@ input[type=email]:focus {
 
 /* Add a green text color and a checkmark when the requirements are right */
 .valid {
-  color: lightgreen;
+  color: green;
 }
 
 .valid:before {
